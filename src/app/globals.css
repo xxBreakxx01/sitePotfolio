@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-800 text-white;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-down {
+    animation: fade-in-down 1s ease-out forwards;
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out 0.5s forwards; /* Added delay */
+  }
+  .animate-bounce-slow {
+    animation: bounce-slow 2s infinite;
+  }
+
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(-10%); /* Adjusted bounce height */
+      animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+  }
+}
+
+/* Add a placeholder for hero_background.jpg if it's not available yet */
+/* For example, a dark gradient */
+.bg-cover.bg-center[style*="hero_background.jpg"] {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), var(--fallback-hero-bg, url("/assets/hero_background.jpg"));
+  /* If hero_background.jpg is missing, it will use a dark overlay. */
+  /* Consider adding an actual fallback image or a more sophisticated gradient */
+}
+
