@@ -4,15 +4,44 @@
 
 @layer base {
   body {
-    @apply bg-gray-800 text-white;
+    @apply bg-gray-900 text-white font-modern-font;
+    background-color: #030815; /* Fallback, matches darkest bg from ref site */
   }
-/* Custom animation keyframes removed as Anime.js is now handling these effects */
 
-/* Add a placeholder for hero_background.jpg if it's not available yet */
-/* For example, a dark gradient */
-.bg-cover.bg-center[style*="hero_background.jpg"] {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), var(--fallback-hero-bg, url("/assets/hero_background.jpg"));
-  /* If hero_background.jpg is missing, it will use a dark overlay. */
-  /* Consider adding an actual fallback image or a more sophisticated gradient */
+  h1, h2, h3, h4, h5, h6 {
+    /* Default to modern font, pixelated will be applied via class */
+  }
+}
+
+/* Define custom font families */
+.pixelated-font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.pixelated-font-nav {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem; /* Adjust size for nav if needed */
+}
+
+.modern-font {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Styling for the letter-by-letter animation spans */
+.letter {
+  display: inline-block;
+  /* transform: translateY(1em); Will be handled by anime.js */
+  opacity: 0; /* Start hidden, anime.js will reveal */
+}
+
+/* Additional global styles to mimic reference site if needed */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Example of a subtle background pattern if images aren't available */
+.space-bg-pattern {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
